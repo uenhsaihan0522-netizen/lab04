@@ -11,7 +11,6 @@
     --border-color: #cccccc;
     --font-family: 'Roboto', sans-serif;
 }
-
 * {
     box-sizing: border-box;
 }
@@ -296,7 +295,7 @@ body {
 }
 
 /* =========================================================
-   6. Footer & Responsive Design
+   6. Footer & Responsive Design (ӨВӨРМӨЦ ТӨГСГӨЛ)
    ========================================================= */
 .main-footer {
     text-align: center;
@@ -305,14 +304,52 @@ body {
     margin-top: 40px;
 }
 
-/* Жижиг дэлгэцэнд зориулсанResponsive тохиргоо */
+/* =========================================================
+   RESPONSIVE DESIGN: Гар утас болон Таблетад зориулсан хэсэг
+   ========================================================= */
+
+/* Таблет болон түүнээс доош хэмжээтэй дэлгэц (900px) */
 @media (max-width: 900px) {
+    /* 1. Sidebar болон Main Content-ийг зэрэгцүүлэлгүй дор дороо цувдаг болгох */
     .page-layout {
         grid-template-columns: 1fr;
     }
     
+    /* 2. 3 баганатай форм болон дүнгийн хэсгийг 2 багана эсвэл 1 багана болгох */
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* Гар утас болон түүнээс доош хэмжээтэй дэлгэц (768px) */
+@media (max-width: 768px) {
+    /* 1. Header доторх цэсийг босоо байрлалд шилжүүлэх */
+    .main-header {
+        padding: 15px 20px;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column; /* Цэсний линкүүдийг босоо болгоно */
+        gap: 10px;
+    }
+
+    /* 2. Форм болон дүнгийн хэсгийг гар утас дээр 1 багана болгох */
     .form-grid,
     .grades-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* 3. КАРД болон зайн хэмжээг гар утсанд тааруулан багасгах */
+    .card {
+        padding: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
     }
 }
